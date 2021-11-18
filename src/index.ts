@@ -1,3 +1,15 @@
-export const main = () => 'this builds and pushes';
+import { config } from 'dotenv';
+config();
 
-export default main;
+import '@sapphire/plugin-logger/register';
+
+import { LogLevel, SapphireClient } from '@sapphire/framework';
+
+const client = new SapphireClient({
+	intents: ['GUILDS', 'GUILD_MESSAGES'],
+	logger: {
+		level: LogLevel.Debug
+	}
+});
+
+await client.login();
