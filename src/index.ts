@@ -9,7 +9,8 @@ const client = new SapphireClient({
 	intents: ['GUILDS', 'GUILD_MESSAGES'],
 	logger: {
 		level: LogLevel.Debug
-	}
+	},
+	loadMessageCommandListeners: true
 });
 
 await client.login();
