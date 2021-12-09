@@ -1,4 +1,5 @@
 import { ApplicationCommandRegistry, Args, Command } from '@sapphire/framework';
+import { SlashCommandBuilder } from '@discordjs/builders';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 import type { CommandInteraction, ContextMenuInteraction, Message } from 'discord.js';
 
@@ -23,7 +24,7 @@ export class Boop extends Command {
 
 		await interaction.reply({
 			content: `${user} just got booped by ${interaction.user}`,
-			allowedMentions: { users: [interaction.user.id, user.id] }
+			allowedMentions: { users: [...new Set([interaction.user.id, user.id])] }
 		});
 	}
 
@@ -34,11 +35,13 @@ export class Boop extends Command {
 		}
 
 		const user =
-			interaction.targetType === 'USER' ? interaction.options.getUser('user', true) : interaction.options.getMessage('message', true).author;
+			interaction.targetType === 'USER'
+				? interaction.options.getUser('user', true).id
+				: interaction.options.getMessage('message', true).author.id;
 
 		await interaction.reply({
-			content: `${user} just got booped by ${interaction.user}`,
-			allowedMentions: { users: [interaction.user.id, user.id] }
+			content: `<@${user}> just got booped by ${interaction.user}`,
+			allowedMentions: { users: [...new Set([interaction.user.id, user])] }
 		});
 	}
 
