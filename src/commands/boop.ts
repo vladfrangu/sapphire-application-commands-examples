@@ -1,5 +1,4 @@
 import { ApplicationCommandRegistry, Args, Command } from '@sapphire/framework';
-import { SlashCommandBuilder } from '@discordjs/builders';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 import type { CommandInteraction, ContextMenuInteraction, Message } from 'discord.js';
 
@@ -10,7 +9,7 @@ export class Boop extends Command {
 
 		await message.reply({
 			content: `${user} just got booped by ${message.author}`,
-			allowedMentions: { users: [message.author.id, user.id] }
+			allowedMentions: { users: [...new Set([message.author.id, user.id])] }
 		});
 	}
 

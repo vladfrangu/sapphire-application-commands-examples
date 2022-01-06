@@ -13,4 +13,6 @@ const client = new SapphireClient({
 	loadMessageCommandListeners: true
 });
 
+client.fetchPrefix = () => 'slashies.';
+
 await client.login();
