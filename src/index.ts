@@ -1,9 +1,3 @@
-import { setup } from '@skyra/env-utilities';
-
-setup();
-
-import '@sapphire/plugin-logger/register';
-
 import { ApplicationCommandRegistries, LogLevel, RegisterBehavior, SapphireClient } from '@sapphire/framework';
 import { GatewayIntentBits } from 'discord.js';
 
@@ -18,4 +12,4 @@ const client = new SapphireClient({
 	loadMessageCommandListeners: true
 });
 
-await client.login();
+await client.login('A Very Beautiful Token');
