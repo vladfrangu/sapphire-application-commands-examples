@@ -12,8 +12,8 @@ Please make sure to read the [Contributing Guide][contributing] before making a 
 
 Thank you to all the people who already contributed to Sapphire!
 
-<a href="https://github.com/sapphiredev/utilities/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=sapphiredev/utilities" />
+<a href="https://github.com/vladfrangu/sapphire-application-commands-examples/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=vladfrangu/sapphire-application-commands-examples" />
 </a>
 
-[contributing]: https://github.com/sapphiredev/.github/blob/main/.github/CONTRIBUTING.md
+[contributing]: .github/CONTRIBUTING.md
