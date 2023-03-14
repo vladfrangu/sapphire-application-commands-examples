@@ -14,8 +14,7 @@ export class DebugIssue1ByHenning extends Command {
 					.setDescription('Debug issue 1; reported by Henning')
 					.addIntegerOption((owoLevel) => owoLevel.setName('owo-level').setDescription('How owo of you').setMinValue(69).setMaxValue(420)),
 			{
-				guildIds: ['737141877803057244'],
-				idHints: ['944771600379691098']
+				guildIds: ['737141877803057244']
 			}
 		);
 	}

@@ -1,18 +1,15 @@
-import { config } from 'dotenv';
-config();
+import { ApplicationCommandRegistries, LogLevel, RegisterBehavior, SapphireClient } from '@sapphire/framework';
+import { GatewayIntentBits } from 'discord.js';
 
-import '@sapphire/plugin-logger/register';
-
-import { LogLevel, SapphireClient } from '@sapphire/framework';
+ApplicationCommandRegistries.setDefaultBehaviorWhenNotIdentical(RegisterBehavior.BulkOverwrite);
 
 const client = new SapphireClient({
-	intents: ['GUILDS', 'GUILD_MESSAGES'],
+	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 	logger: {
 		level: LogLevel.Debug
 	},
+	defaultPrefix: 'slashies.',
 	loadMessageCommandListeners: true
 });
 
-client.fetchPrefix = () => 'slashies.';
-
-await client.login();
+await client.login('A Very Beautiful Token');
