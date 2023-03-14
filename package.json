@@ -1,7 +1,7 @@
 {
-	"name": "@sapphire/application-commands-examples",
+	"name": "sapphire-application-commands-examples",
 	"version": "0.0.1",
-	"description": "application-commands-examples",
+	"description": "Application commands examples",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"author": "@sapphire",
@@ -9,82 +9,40 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"lint": "eslint src tests --ext ts --fix",
-		"format": "prettier --write {src,tests}/**/*.ts",
-		"docs": "typedoc",
-		"test": "jest",
-		"test:watch": "jest --watch",
-		"update": "yarn upgrade-interactive",
+		"lint": "eslint src --ext ts --fix",
+		"format": "prettier --write .",
 		"build": "tsc -b src",
-		"clean": "tsc -b src --clean",
+		"clean": "npx rimraf dist",
 		"watch": "tsc -b src -w",
-		"sversion": "standard-version",
-		"commit": "git-cz",
-		"cz": "git-cz",
-		"prepublishOnly": "yarn build",
-		"prepare": "husky install .github/husky",
-		"start": "yarn dlx rimraf dist && yarn build && node ."
+		"postinstall": "husky install .github/husky",
+		"start": "npm run clean && npm run build && node ."
 	},
 	"dependencies": {
-		"@sapphire/decorators": "^4.3.4",
-		"@sapphire/framework": "next",
-		"@sapphire/plugin-logger": "^2.2.1",
-		"discord.js": "^13.7.0",
-		"dotenv": "^16.0.1",
-		"tslib": "^2.x"
+		"@sapphire/decorators": "^6.0.0",
+		"@sapphire/framework": "^4.2.2",
+		"@sapphire/plugin-logger": "^3.0.1",
+		"discord.js": "^14.8.0",
+		"@skyra/env-utilities": "^1.1.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.0.0",
-		"@commitlint/config-conventional": "^17.0.0",
-		"@sapphire/eslint-config": "^4.3.5",
-		"@sapphire/prettier-config": "^1.4.3",
+		"@commitlint/cli": "^17.4.4",
+		"@commitlint/config-conventional": "^17.4.4",
+		"@sapphire/eslint-config": "^4.3.8",
+		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^3.3.4",
-		"@types/jest": "^27.5.1",
-		"@types/node": "^17.0.35",
-		"@typescript-eslint/eslint-plugin": "^5.25.0",
-		"@typescript-eslint/parser": "^5.25.0",
+		"@types/node": "^18.15.3",
+		"@typescript-eslint/eslint-plugin": "^5.55.0",
+		"@typescript-eslint/parser": "^5.55.0",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.15.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-prettier": "^4.0.0",
-		"husky": "^8.0.1",
-		"jest": "^28.1.0",
-		"jest-circus": "^28.1.0",
-		"lint-staged": "^12.4.1",
-		"prettier": "^2.6.2",
+		"eslint": "^8.36.0",
+		"eslint-config-prettier": "^8.7.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.0",
+		"prettier": "^2.8.4",
 		"pretty-quick": "^3.1.3",
-		"standard-version": "^9.5.0",
-		"ts-jest": "^28.0.2",
-		"ts-node": "^10.7.0",
-		"typedoc": "^0.22.15",
-		"typescript": "^4.6.4"
+		"typescript": "^4.9.5"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/sapphiredev/template.git"
-	},
-	"files": [
-		"dist",
-		"!dist/*.tsbuildinfo"
-	],
-	"engines": {
-		"node": ">=v14.0.0",
-		"npm": ">=7.0.0"
-	},
-	"keywords": [
-		"@sapphire/template",
-		"bot",
-		"typescript",
-		"ts",
-		"yarn",
-		"discord",
-		"sapphire",
-		"discordjs"
-	],
-	"bugs": {
-		"url": "https://github.com/sapphiredev/template/issues"
-	},
-	"homepage": "https://www.sapphirejs.dev",
 	"commitlint": {
 		"extends": [
 			"@commitlint/config-conventional"
@@ -97,10 +55,5 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"prettier": "@sapphire/prettier-config",
-	"packageManager": "yarn@3.1.0"
+	}
 }

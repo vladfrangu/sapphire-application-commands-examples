@@ -16,7 +16,7 @@ To contribute to this repository, feel free to create a new fork of the reposito
 submit a pull request. We highly suggest [ESLint] to be installed
 in your text editor or IDE of your choice to ensure builds from GitHub Actions do not fail.
 
-**_Before committing and pushing your changes, please ensure that you do not have any linting errors by running `yarn lint`!_**
+**_Before committing and pushing your changes, please ensure that you do not have any linting errors by running `npm run lint`!_**
 
 ### @sapphire/template Concept Guidelines
 
@@ -33,6 +33,5 @@ There are a number of guidelines considered when reviewing Pull Requests to be m
 [here]: https://github.com/sapphiredev/cli/pulls
 [eslint]: https://eslint.org/
 [node.js]: https://nodejs.org/en/download/
-[yarn]: https://yarnpkg.com/getting-started/install
 [oop paradigms]: https://en.wikipedia.org/wiki/Object-oriented_programming
 [scripts]: /scripts
